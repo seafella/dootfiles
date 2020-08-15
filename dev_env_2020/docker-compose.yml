@@ -1,0 +1,67 @@
+version: '3.6'
+services:
+  # neo4j:
+  #   image: neo4j:4.1.1
+  #   environment:
+  #     NEO4J_AUTH: neo4j/knowedge
+  #     NEO4J_dbms_default__database: wiki.db
+  #   volumes:
+  #     - type: bind
+  #       source: /home/ian/db/wiki-graph/
+  #       target: /var/lib/neo4j/data/databases/wiki.db
+  #   ports:
+  #     - 7687:7687
+  #     - 7474:7474
+  # arch:
+  #   image: archlinux:latest
+  #   environment:
+  #     HELLO: world
+  #   volumes:
+  #     - type: bind
+  #       source: ~/work
+  #       target: ~/work
+  #   ports:
+  #     - 8080:8080
+  straylight:
+    build:
+      context: straylight/
+    environment:
+      HELLO: world
+    volumes:
+      - type: bind
+        source: /Users/u0/work/
+        target: /home/u0/work
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - 8080:8080
+  test_runner:
+    build:
+      context: test_runner/
+    environment:
+      HELLO: world
+    volumes:
+      - type: bind
+        source: /Users/u0/work/
+        target: /home/u0/work
+    stdin_open: true # docker run -i
+    tty: true        # docker run -t
+    ports:
+      - 8081:8080
+  # woah_another:
+  #   build:
+  #     context: nodes/
+  #   environment: *neo4j
+  #   ports:
+  #     - 8083:8080
+  # reverse:
+  #   container_name: reverse
+  #   hostname: reverse
+  #   image: nginx
+  #   ports:
+  #     - 80:80
+  #     - 443:443
+  #   volumes:
+  #     - ./reverse/config/nginx.conf:/etc/nginx/nginx.conf
+networks:
+  default:

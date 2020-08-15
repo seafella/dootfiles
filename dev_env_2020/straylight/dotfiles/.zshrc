@@ -11,3 +11,5 @@ zstyle :compinstall filename '/home/u0/.zshrc'
 autoload -Uz compinit
 compinit
 # End of lines added by compinstall
+
+source ~/powerlevel10k/powerlevel10k.zsh-theme
