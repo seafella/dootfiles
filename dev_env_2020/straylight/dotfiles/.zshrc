@@ -13,3 +13,5 @@ compinit
 # End of lines added by compinstall
 
 source ~/powerlevel10k/powerlevel10k.zsh-theme
+source ~/.purepower
+
