@@ -1,9 +1,9 @@
-##spin up containers
+## spin up containers
 ```
 docker-compose build && docker-compose up
 ```
 
-##attach to container
+## attach to container
 ```
 docker exec -it dev_env_2020_straylight_1 zsh
 ```
