@@ -49,10 +49,7 @@ ADD ./start.sh /home/u0/
 # USER root
 # RUN pip install -r /usr/src/requirements.txt
 
-USER u0
-
 # switch back to user u0 and run the thing!
-
-CMD ["zsh"]
-# CMD ["zsh", "start.sh"]
+USER u0
+CMD ["zsh", "/home/u0/start.sh"]
 
